@@ -1,8 +1,7 @@
-function SilverWare ({ count }){
-    console.log("count", count)
+function SilverWare ({ name, count }){
     return (
         <div>
-            <p>: {count * 2}</p>
+            <p>{name}: {count * 2}</p>
         </div>
     )
 }

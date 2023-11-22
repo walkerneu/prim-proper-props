@@ -11,10 +11,15 @@ import PartyLeader from '../PartyLeader/PartyLeader.jsx'
 function App() {
   let [guestList, setGuestList] = useState([]);
 
-  //On load, get guests
-  useEffect(() => {
-    getGuests()
-  }, [])
+  const deleteGuest = (id) => {
+    axios.delete(`/guests/${id}`)
+      .then(function (response) {
+        getGuests();
+    
+      }).catch(function (error) {
+        console.log('error in DELETE', error);
+      });
+  }
 
   const getGuests = () => {
     axios.get('/guests')
@@ -27,17 +32,22 @@ function App() {
       })
   }
 
+  useEffect(() => {
+    getGuests()
+  }, [])
+
   return (
     <div className="App">
       <Header />
       <PartyLeader 
-        leader={guestList[0]} 
+        leader={ guestList[0] } 
       />
       <GuestForm 
         getGuests={getGuests}
       />
       <GuestList 
         guestList={guestList}
+        deleteGuest={deleteGuest}
       />
       <DinnerSupplies 
         count={guestList.length}
