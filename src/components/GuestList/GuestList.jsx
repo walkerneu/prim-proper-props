@@ -1,4 +1,4 @@
-import DeleteButton from "../DeleteButton/DeleteButton";
+import Guest from "../Guest/Guest";
 
 function GuestList ({guestList, getGuests}){
 
@@ -14,16 +14,11 @@ function GuestList ({guestList, getGuests}){
         </thead>
         <tbody>
           {guestList.map(guest => (
-            <tr key={guest.id}>
-              <td>{guest.name}</td>
-              <td>{String(guest.kidsMeal)}</td>
-              <td>
-                <DeleteButton 
-                    guestId={guest.id}
-                    getGuests={getGuests}
-                />
-              </td>
-            </tr>
+            <Guest
+                key={guest.id}
+                guest={guest}
+                getGuests={getGuests}
+            />
           ))}
         </tbody>
         </table>
