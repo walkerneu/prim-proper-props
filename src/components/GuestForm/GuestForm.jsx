@@ -45,10 +45,11 @@ function GuestForm ({ getGuests }) {
           onChange={(evt) => setNewGuestName(evt.target.value)}
         />
         <div>
-          Would this guest like a kid's meal?
+          <h3>Would this guest like a kid's meal?</h3>
           <div >
             <div>
               <label>
+                Yes, this guest would like a Kid's Meal
                 <input
                   type="radio"
                   value={true}
@@ -56,11 +57,11 @@ function GuestForm ({ getGuests }) {
                   name="kidsMeal"
                   onChange={(evt) => setNewGuestMeal(evt.target.value)}
                 />
-                Yes, this guest would like a Kid's Meal
               </label>
             </div>
             <div>
               <label>
+                No, this guest would not like a Kid's Meal
                 <input
                   type="radio"
                   value={false}
@@ -68,7 +69,6 @@ function GuestForm ({ getGuests }) {
                   name="kidsMeal"
                   onChange={(evt) => setNewGuestMeal(evt.target.value)}
                 />
-                No, this guest would not like a Kid's Meal
               </label>
             </div>
           </div>
