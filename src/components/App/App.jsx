@@ -11,16 +11,6 @@ import PartyLeader from '../PartyLeader/PartyLeader.jsx'
 function App() {
   let [guestList, setGuestList] = useState([]);
 
-  const deleteGuest = (id) => {
-    axios.delete(`/guests/${id}`)
-      .then(function (response) {
-        getGuests();
-    
-      }).catch(function (error) {
-        console.log('error in DELETE', error);
-      });
-  }
-
   const getGuests = () => {
     axios.get('/guests')
       .then(response => {
@@ -31,6 +21,18 @@ function App() {
         console.log(err);
       })
   }
+
+  // const deleteGuest = (id) => {
+  //   axios.delete(`/guests/${id}`)
+  //     .then(response => {
+  //       getGuests()
+  //     })
+  //     .catch(err => {
+  //       alert('error deleting guests');
+  //       console.log(err);
+  //     })
+  // }
+
 
   useEffect(() => {
     getGuests()
@@ -47,7 +49,7 @@ function App() {
       />
       <GuestList 
         guestList={guestList}
-        deleteGuest={deleteGuest}
+        getGuests={getGuests}
       />
       <DinnerSupplies 
         count={guestList.length}

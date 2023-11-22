@@ -1,7 +1,6 @@
-// import DeleteButton from "../DeleteButton/DeleteButton";
+import DeleteButton from "../DeleteButton/DeleteButton";
 
-function GuestList ({guestList, deleteGuest}){
-
+function GuestList ({guestList, getGuests}){
 
     return (
       <>
@@ -19,11 +18,10 @@ function GuestList ({guestList, deleteGuest}){
               <td>{guest.name}</td>
               <td>{String(guest.kidsMeal)}</td>
               <td>
-              <button
-                onClick={deleteGuest(guest.id)}
-              >
-                Delete Guest
-              </button>
+                <DeleteButton 
+                    guestId={guest.id}
+                    getGuests={getGuests}
+                />
               </td>
             </tr>
           ))}

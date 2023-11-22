@@ -1,8 +1,21 @@
+import axios from 'axios';
 
-function DeleteButton ({ id, deleteGuest }){
+function DeleteButton ({ guestId, getGuests }){
+
+    const deleteGuest = () => {
+        axios.delete(`/guests/${guestId}`)
+          .then(response => {
+            getGuests()
+          })
+          .catch(err => {
+            alert('error deleting guests');
+            console.log(err);
+          })
+      }
+
     return (
         <button
-            onClick={deleteGuest(id)}
+            onClick={deleteGuest}
         >
             Delete Guest
         </button>
