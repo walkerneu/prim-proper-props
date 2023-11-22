@@ -1,19 +1,18 @@
+import SilverWare from '../SilverWare/SilverWare.jsx'
 
-
-function DinnerSupplies ({ guestList }) { 
-
+function DinnerSupplies ({ count }) { 
+    
     return (
         <>
             <h2>Dinner Supplies</h2>
-            <div>
-                Spoons: {guestList.length * 2}
-            </div>
-            <div>
-                Forks: {guestList.length * 2}
-            </div>
-            <div>
-                Knives: {guestList.length * 2}
-            </div>
+            <SilverWare 
+                count={count}/>
+            <SilverWare 
+                count={count}
+            />
+            <SilverWare 
+                count={count}
+            />
         </>
     )
 }
